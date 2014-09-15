@@ -1,0 +1,114 @@
+08.09.2014. 22:15:21 UlozenkaAPI chyba response
+array (
+  'order_number' => '13',
+  'pobocka' => 'brno',
+  'exported' => '0',
+  'parcel_count' => '1',
+  'address_street' => 'dasdasd',
+  'address_town' => 'asdasdas',
+  'address_zip' => '33333',
+  'customer_name' => 'dasdasd',
+  'customer_surname' => 'asdasdasd',
+  'customer_company' => '',
+  'cash_on_delivery' => '0',
+  'customer_phone' => '555444555',
+  'customer_email' => 'aaaa@dssds.cc',
+  'destination_branch_id' => NULL,
+  'transport_service_id' => 1,
+  'currency' => 'CZK',
+  'address_state' => NULL,
+)
+08.09.2014. 22:15:21 UlozenkaAPI chyba response
+stdClass::__set_state(array(
+   'code' => 401,
+   '_links' => 
+  stdClass::__set_state(array(
+  )),
+   'data' => 
+  array (
+  ),
+   'errors' => 
+  array (
+    0 => 
+    stdClass::__set_state(array(
+       'code' => 1001,
+       'description' => 'Invalid shop - key combination.',
+    )),
+  ),
+))
+08.09.2014. 23:45:17 UlozenkaAPI chyba response
+array (
+  'order_number' => '13',
+  'pobocka' => 'brno',
+  'exported' => '0',
+  'parcel_count' => '1',
+  'address_street' => 'dasdasd',
+  'address_town' => 'asdasdas',
+  'address_zip' => '33333',
+  'customer_name' => 'dasdasd',
+  'customer_surname' => 'asdasdasd',
+  'customer_company' => '',
+  'cash_on_delivery' => '0',
+  'customer_phone' => '555444555',
+  'customer_email' => 'aaaa@dssds.cc',
+  'destination_branch_id' => NULL,
+  'transport_service_id' => 1,
+  'currency' => 'CZK',
+  'address_state' => NULL,
+)
+08.09.2014. 23:45:17 UlozenkaAPI chyba response
+stdClass::__set_state(array(
+   'code' => 400,
+   '_links' => 
+  stdClass::__set_state(array(
+  )),
+   'data' => 
+  array (
+  ),
+   'errors' => 
+  array (
+    0 => 
+    stdClass::__set_state(array(
+       'code' => 5005,
+       'description' => 'Destination country missing.',
+    )),
+  ),
+))
+09.09.2014. 10:33:58 UlozenkaAPI chyba response
+array (
+  'order_number' => '13',
+  'pobocka' => 'brno',
+  'exported' => '0',
+  'parcel_count' => '1',
+  'address_street' => 'dasdasd',
+  'address_town' => 'asdasdas',
+  'address_zip' => '33333',
+  'customer_name' => 'dasdasd',
+  'customer_surname' => 'asdasdasd',
+  'customer_company' => '',
+  'cash_on_delivery' => '0',
+  'customer_phone' => '555444555',
+  'customer_email' => 'aaaa@dssds.cc',
+  'destination_branch_id' => NULL,
+  'transport_service_id' => 1,
+  'currency' => 'CZK',
+  'address_state' => NULL,
+)
+09.09.2014. 10:33:58 UlozenkaAPI chyba response
+stdClass::__set_state(array(
+   'code' => 400,
+   '_links' => 
+  stdClass::__set_state(array(
+  )),
+   'data' => 
+  array (
+  ),
+   'errors' => 
+  array (
+    0 => 
+    stdClass::__set_state(array(
+       'code' => 5005,
+       'description' => 'Destination country missing.',
+    )),
+  ),
+))

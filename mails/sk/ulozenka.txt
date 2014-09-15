@@ -1,0 +1,11 @@
+Dobrý den, p. {lastname},
+
+Jakmile bude Vaše zboží připraveno k vyzvednutí, budeme Vás informovat.
+ 
+Zboží bude k vyzvednutí na prodejně:
+{selected_store}
+
+
+
+Variabilní symbol (VS): {id_order}
+Částka k úhradě : {total_paid} 

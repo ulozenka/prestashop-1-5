@@ -1,0 +1,13 @@
+Dear  {lastname},
+ 
+Your order: {id_order}
+ 
+We will inform you as soon as your order is ready.
+ 
+Store:
+{selected_store}
+
+
+
+Symbol(VS): {id_order}
+Total to pay: {total_paid} 

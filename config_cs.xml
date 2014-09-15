@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<module>
+    <name>ulozenka</name>
+    <displayName><![CDATA[Uloženka]]></displayName>
+    <version><![CDATA[1.21]]></version>
+    <description><![CDATA[Modul pro ulozenka.cz]]></description>
+    <author><![CDATA[prestahost.cz]]></author>
+    <tab><![CDATA[shipping_logistics]]></tab>
+    <confirmUninstall><![CDATA[Opravdu odinstalovat?]]></confirmUninstall>
+    <is_configurable>1</is_configurable>
+    <need_instance>1</need_instance>
+    <limited_countries></limited_countries>
+</module>

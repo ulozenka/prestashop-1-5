@@ -1,0 +1,1 @@
+{$pobocka.name|escape:'htmlall':'UTF-8'}  {l s='Postage' mod='ulozenka'}: {$cena}
