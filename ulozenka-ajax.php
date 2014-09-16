@@ -20,14 +20,14 @@ if ($retval['cena'] == '')
 $retval['cena'].=' (' . $instance->l('s DPH') . ')';
 
 
-if ($instance::isFreeShipping(Context::getContext()->cart->getOrderTotal(true, Cart::ONLY_PRODUCTS)))
+// if($instance::isFreeShipping(Context::getContext()->cart->getOrderTotal(true, Cart::ONLY_PRODUCTS))) 
+if (call_user_func(array($instance, 'isFreeShipping'), Context::getContext()->cart->getOrderTotal(true, Cart::ONLY_PRODUCTS)))
     $retval['cena'] = $instance->l('Zdarma');
 
 
 
 $retval['platba'] = $instance->ajax_getPaymentMethods();
 if ($val && strlen($val)) {
-
     $retval['allow'] = 1;
 } else {
     $retval['allow'] = 0;
@@ -37,6 +37,8 @@ if ($val && strlen($val)) {
 
 $retval['opc'] = (int) Configuration::get('PS_ORDER_PROCESS_TYPE');
 
-$retval['version'] = $instance::getVersion();
-die(json_encode($retval));
+
+// $retval['version'] = $instance::getVersion();
+if (call_user_func(array($instance, 'getVersion')))
+    die(json_encode($retval));
 ?>
