@@ -892,7 +892,7 @@ ULOZENKA;
                 Db::getInstance()->execute($sql);
             }
         }
-        return;
+        return $Api->hasErrors();
     }
 
     protected function getBranchFromShortcut($shortcut, $pobocky) {

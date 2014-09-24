@@ -44,10 +44,10 @@ class AdminOrderUlozenka extends AdminController {
             'exportU' => array('text' => $this->l('export Ulozenka'), 'icon' => 'icon-refresh')
         );
 
-
         $this->_select = '
         a.id_currency,
         a.id_order AS id_pdf,
+        cr.iso_code AS currency,
         CONCAT(LEFT(c.`firstname`, 1), \'. \', c.`lastname`) AS `customer`,
         osl.`name` AS `osname`,
         os.`color`,
@@ -55,8 +55,9 @@ class AdminOrderUlozenka extends AdminController {
         IF((SELECT COUNT(so.id_order) FROM `' . _DB_PREFIX_ . 'orders` so WHERE so.id_customer = a.id_customer) > 1, 0, 1) as new';
 
         $this->_join = '
+        LEFT JOIN `' . _DB_PREFIX_ . 'currency` cr ON a.`id_currency` = cr.`id_currency`
         LEFT JOIN `' . _DB_PREFIX_ . 'customer` c ON (c.`id_customer` = a.`id_customer`)
-            LEFT JOIN `' . _DB_PREFIX_ . 'ulozenka` u ON (u.`id_order` = a.`id_order`)
+        LEFT JOIN `' . _DB_PREFIX_ . 'ulozenka` u ON (u.`id_order` = a.`id_order`)
         LEFT JOIN `' . _DB_PREFIX_ . 'order_state` os ON (os.`id_order_state` = a.`current_state`)
         LEFT JOIN `' . _DB_PREFIX_ . 'order_state_lang` osl ON (os.`id_order_state` = osl.`id_order_state` AND osl.`id_lang` = ' . (int) $this->context->language->id . ')';
 
@@ -95,11 +96,18 @@ class AdminOrderUlozenka extends AdminController {
             'total_paid_tax_incl' => array(
                 'title' => $this->l('Celkem'),
                 'width' => 70,
-                'align' => 'right',
+                'align' => 'center',
                 'prefix' => '<b>',
                 'suffix' => '</b>',
-                'type' => 'price',
-                'currency' => true
+                'type' => 'float'
+            ),
+            'currency' => array(
+                'title' => $this->l('Měna'),
+                'width' => 50,
+                'prefix' => '<b>',
+                'suffix' => '</b>',
+                'align' => 'center',
+                'filter_key' => 'currency'
             ),
             'payment' => array(
                 'title' => $this->l('Platba: '),
@@ -201,7 +209,12 @@ class AdminOrderUlozenka extends AdminController {
     protected function processBulkExportU() {
         if (is_array($this->boxes) && !empty($this->boxes)) {
             $exportu = Module::getInstanceByName('ulozenka');
-            $exportu->exportOrders($this->boxes);
+
+            $errors = $exportu->exportOrders($this->boxes);
+            if ($errors === false)
+                $this->confirmations[] = Tools::displayError('Data byla úspěšně exportována.');
+            else
+                $this->errors = array_merge($this->errors, $errors);
         } else
             $this->errors[] = Tools::displayError('You must select at least one element to export.');
     }

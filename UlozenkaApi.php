@@ -5,6 +5,7 @@ class UlozenkaApi {
     protected $shopId;
     protected $apiKey;
     protected $cUrl;
+    protected $errors;
 
     const API_URI = 'https://partner.ulozenka.cz';
     const ULOZENKA_TRANSPORT_SERVICE_ID = 1;
@@ -44,9 +45,15 @@ class UlozenkaApi {
         }
 
         if ($jsonData['branch']['country'] == "SVK") {
-            $jsonData['currency'] = self::CURRENCY_EUR;
+            if ($jsonData['currency'] != self::CURRENCY_EUR) {
+                $this->errors[] = 'Export se nezdařil. Na Slovensku nelze vybrat dobírku v jiné měně než v EUR.';
+                return NULL;
+            }
         } else {
-            $jsonData['currency'] = self::CURRENCY_CZK;
+            if ($jsonData['currency'] != self::CURRENCY_CZK) {
+                $this->errors[] = 'Export se nezdařil. V České republice nelze vybrat dobírku v jiné měně než v CZK.';
+                return NULL;
+            }
         }
 
         if ($jsonData['cash_on_delivery'] > 0 && $jsonData['currency'] == "CZK") {
@@ -70,6 +77,7 @@ class UlozenkaApi {
         if ($error) {
             $this->logError('UlozenkaAPI chyba curl', var_export($jsonData, true));
             $this->logError('UlozenkaAPI chyba curl', $error);
+            $this->errors[] = 'Export se nezdařil' . $error;
             return NULL;
         }
 //echo $header;
@@ -82,11 +90,20 @@ class UlozenkaApi {
             //Je nutné zalogovat $responseData;
             $this->logError('UlozenkaAPI chyba response', var_export($jsonData, true));
             $this->logError('UlozenkaAPI chyba response', var_export($responseData, true));
+            $this->errors[] = 'Export se nezdařil' . var_export($responseData, true);
             return NULL;
         } else {
             $id = $data[0]->id; // TOTO JE ID ZÁSILKY -> ULOŽIT DO DATABÁZE (PODLE NĚJ BUDEME STAHOVAT STAVY!)
             return (int) $id;
         }
+    }
+
+    public function hasErrors() {
+        //  $this->errors[]='test error';
+        if (is_array($this->errors) && $this->errors) {
+            return $this->errors;
+        }
+        return false;
     }
 
     public function __destruct() {

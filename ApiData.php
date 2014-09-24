@@ -26,7 +26,7 @@ class ApiData {
              c.lastname as  customer_surname,
              ad.company as  customer_company,
              IF(u.dobirka > 0, o.total_paid, 0) as cash_on_delivery,
-          
+             cr.iso_code AS currency,
              COALESCE(ad.phone_mobile, ai.phone_mobile,  ad.phone, ai.phone)  as customer_phone,    
              c.email as customer_email
             FROM ' . _DB_PREFIX_ . 'orders o
@@ -36,10 +36,13 @@ class ApiData {
              o.id_address_delivery =ad.id_address
              LEFT  JOIN   ' . _DB_PREFIX_ . 'address ai ON
              o.id_address_invoice =ai.id_address
-            LEFT  JOIN   ' . _DB_PREFIX_ . 'ulozenka u ON
+             LEFT  JOIN   ' . _DB_PREFIX_ . 'ulozenka u ON
              o.id_order =u.id_order 
+             LEFT  JOIN   ' . _DB_PREFIX_ . 'currency cr ON
+             o.id_currency = cr.id_currency 
              WHERE
             o.id_order=' . (int) $id;
+
             $data = Db::getInstance()->getRow($sql);
             if (empty($data['customer_phone'])) {   // coalesce  prijme prazdny retezec
                 $data['customer_phone'] = $this->getPhone($id);
