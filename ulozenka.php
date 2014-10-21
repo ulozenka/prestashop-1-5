@@ -13,7 +13,7 @@ class Ulozenka extends CarrierModule {
         $this->name = 'ulozenka';
         $this->uppername = strtoupper($this->name);
         $this->tab = 'shipping_logistics';
-        $this->version = '1.3';
+        $this->version = '1.31';
         $this->author = 'prestahost.cz';
         $this->need_instance = 1;
         $this->ps_versions_compliancy = array('min' => '1.5', 'max' => '1.6.9');
@@ -561,11 +561,11 @@ class Ulozenka extends CarrierModule {
                 }
 
 
-                if ((int) $cena) {
+                if ((float) $cena) {
                     $cena = $this->addTax($cena);
                 }
 
-                if ((int) $cena || $cena === 0 || $cena === '0')
+                if ((float) $cena || $cena === 0 || $cena === '0')
                     $cena = Tools::displayPrice(Tools::convertPrice($cena));
 
 
