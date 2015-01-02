@@ -12,8 +12,6 @@
  */
 class Cart extends CartCore {
 
-   
-
     /**
      * Get all deliveries options available for the current cart formated like Carriers::getCarriersForOrder
      * This method was wrote for retrocompatibility with 1.4 theme
@@ -25,8 +23,7 @@ class Cart extends CartCore {
      * @param boolean $flush Force flushing cache
      *
      */
-    public function simulateCarriersOutput(Country $default_country = null, $flush = false)
-    {
+    public function simulateCarriersOutput(Country $default_country = null, $flush = false) {
         static $cache = false;
         if ($cache !== false && !$flush)
             return $cache;
@@ -38,21 +35,17 @@ class Cart extends CartCore {
             return array();
 
         $carriers = array();
-        foreach (reset($delivery_option_list) as $key => $option)
-        {
+        foreach (reset($delivery_option_list) as $key => $option) {
             $price = $option['total_price_with_tax'];
             $price_tax_exc = $option['total_price_without_tax'];
 
-            if ($option['unique_carrier'])
-            {
+            if ($option['unique_carrier']) {
                 $carrier = reset($option['carrier_list']);
                 $name = $carrier['instance']->name;
                 $img = $carrier['logo'];
                 $delay = $carrier['instance']->delay;
-                $delay = isset($delay[Context::getContext()->language->id]) ? $delay[Context::getContext()->language->id] : $delay[(int)Configuration::get('PS_LANG_DEFAULT')];
-            }
-            else
-            {
+                $delay = isset($delay[Context::getContext()->language->id]) ? $delay[Context::getContext()->language->id] : $delay[(int) Configuration::get('PS_LANG_DEFAULT')];
+            } else {
                 $nameList = array();
                 foreach ($option['carrier_list'] as $carrier)
                     $nameList[] = $carrier['instance']->name;
@@ -60,11 +53,11 @@ class Cart extends CartCore {
                 $img = ''; // No images if multiple carriers
                 $delay = '';
             }
-            $mod=$carrier['instance']->external_module_name;
+            $mod = $carrier['instance']->external_module_name;
             $carriers[] = array(
                 'name' => $name,
                 'img' => $img,
-                'mod'=>$mod,
+                'mod' => $mod,
                 'delay' => $delay,
                 'price' => $price,
                 'price_tax_exc' => $price_tax_exc,
@@ -74,4 +67,5 @@ class Cart extends CartCore {
         }
         return $carriers;
     }
+
 }
