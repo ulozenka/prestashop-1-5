@@ -13,7 +13,7 @@ class Ulozenka extends CarrierModule {
         $this->name = 'ulozenka';
         $this->uppername = strtoupper($this->name);
         $this->tab = 'shipping_logistics';
-        $this->version = '1.4';
+        $this->version = '1.4.1';
         $this->author = 'prestahost.cz';
         $this->need_instance = 1;
         $this->ps_versions_compliancy = array('min' => '1.5', 'max' => '1.6.9');

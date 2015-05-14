@@ -42,6 +42,6 @@ else
     $retval['onepageactive'] = 0;
 
 
-if (call_user_func(array($instance, 'getVersion')))
+$retval['version'] = call_user_func(array($instance, 'getVersion'));
     die(json_encode($retval));
 ?>
