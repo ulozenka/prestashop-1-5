@@ -12,6 +12,9 @@ class UlozenkaApi {
     const DPD_PARCELSHOP_TRANSPORT_SERVICE_ID = 5;
     const CURRENCY_CZK = "CZK";
     const CURRENCY_EUR = "EUR";
+    const API_ID =  "3Q3sl8gU7r";
+    const API_VERSION = "1.4.1";
+    
 
     public function __construct() {
 
@@ -22,6 +25,8 @@ class UlozenkaApi {
         $headers = array(
             'X-Shop: ' . $this->shopId,
             'X-Key: ' . $this->apiKey,
+            'X-App-Id:' . self::API_ID,
+            'X-App-Version:' . self::API_VERSION
         );
 
         $uri = self::API_URI . '/v3/consignments';
