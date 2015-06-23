@@ -15,6 +15,6 @@ Dříve než začnete modul Uloženka používat, je potřeba provést nastaven�
 <br>
 <br>**Je třeba zadat tyto povinné údaje:**
 <br><br>1) ID obchodu - ID vašeho obchodu v systému Uloženka
-<br><br>2) API klíč - tento klíč vygenerujete v partnerské sekci Uloženka v menu Moje obchody/nastavení obchodu/nastavit klíč pro API
+<br><br>2) API klíč - tento klíč vygenerujete v partnerské sekci Uloženka v menu Mé obchody/nastavení obchodu/nastavit klíč pro API
 <br><br>3) Výchozí cena - výchozí cena za tento způsob dopravy
 
