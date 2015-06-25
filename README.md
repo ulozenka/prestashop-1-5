@@ -9,7 +9,7 @@ Modul je dále ve vývoji a do budoucna bude podporovat <a href="https://www.ulo
 # Instalace
 Nejlepším způsobem instalace modulu je stažení modulu ve formátu zip přímo <a href="https://github.com/ulozenka/prestashop-1-5">zde</a> z GiHubu.
 <br>Po stažení zip souboru jděte do sekce moduly v Prestashopu, zde zvolte nahrát nový modul a pokračujte podle pokynů instalátoru.
-<br>Podrobnější informace o instalaci a také odpovědi na často kladené otázky naleznete v <a href="https://github.com/ulozenka/prestashop-1-5/blob/master/readme.pdf">také v dokumentu</a> od tvůrce modulu. 
+<br>Podrobnější informace o instalaci a také odpovědi na často kladené otázky naleznete <a href="https://github.com/ulozenka/prestashop-1-5/blob/master/readme.pdf">také v dokumentu</a> od tvůrce modulu. 
 # Nastavení 
 Dříve než začnete modul Uloženka používat, je potřeba provést nastavení modulu. 
 <br>Nastavení se provádí v menu Moduly, zde najdete modul Uloženka a konfigurace.
