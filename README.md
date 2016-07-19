@@ -2,6 +2,7 @@
 Modul Uloženka je oblíbeným rozšířením pro PrestaShop ve verzi 1.5 a vyšší, díky kterému můžete na svém e-shopu využívat služby agregátoru přepravních služeb Uloženka.
 <br>V aktuální verzi modulu jsou podporovány výdejní místa sítě Uloženka a DPD Parcel Shop.
 <br>
+<br>
 **!Pozor, modul nefunguje korektně ve verzi Prestashopu vyšší než 1.6.0.1!**
 <br>
 <br>
